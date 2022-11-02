@@ -2,9 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Facade\Tenants;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Tenant;
+use App\Service\Tenants;
 use App\Service\TenantServcie;
 
 class TenantsMiddleware
@@ -20,7 +22,7 @@ class TenantsMiddleware
     {
         $host = $request->getHost();
         $tenant = Tenant::where('domain',$host)->first();
-        TenantServcie::switchToTenant($tenant);
+        Tenants::switchToTenant($tenant);
         return $next($request);
     }
 }
