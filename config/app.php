@@ -1,6 +1,8 @@
 <?php
 
+
 use App\Facade\Tenants;
+
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -212,6 +214,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Tenants' => Tenants::class,
+
     ])->toArray(),
 
 ];

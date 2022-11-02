@@ -25,8 +25,9 @@ class TenantServcie
         \Config::set('database.connections.tenant.database' , $tenant->database);
 
         $this->tenant = $tenant;
-        $this->domain = $tenant->domain;
-        $this->database = $tenant->database;
+         $this->domain = $tenant->domain;
+         $this->database = $tenant->database;
+
         \DB::connection('tenant')->reconnect();
         \DB::setDefaultConnection('tenant');
     }
@@ -41,7 +42,8 @@ class TenantServcie
 
 
     public  function getTenant(){
-        return $this->tenant;
+        return  $this->tenant;
+
     }
 
 }
