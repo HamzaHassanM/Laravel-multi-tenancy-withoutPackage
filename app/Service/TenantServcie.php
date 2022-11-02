@@ -27,7 +27,7 @@ class TenantServcie
         $this->tenant = $tenant;
          $this->domain = $tenant->domain;
          $this->database = $tenant->database;
-        $databaseName = $tenant->database;
+
         \DB::connection('tenant')->reconnect();
         \DB::setDefaultConnection('tenant');
     }
@@ -43,6 +43,7 @@ class TenantServcie
 
     public  function getTenant(){
         return  $this->tenant;
+
     }
 
 }

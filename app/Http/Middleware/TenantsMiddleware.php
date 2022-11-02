@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Facade\Tenants;
 use Closure;
 use Illuminate\Http\Request;
 use App\Models\Tenant;
@@ -20,10 +21,6 @@ class TenantsMiddleware
     public function handle(Request $request, Closure $next)
     {
         $host = $request->getHost();
-
-        if($host == Tenants::getTenant()){
-            dd('eq');
-        }
         $tenant = Tenant::where('domain',$host)->first();
         Tenants::switchToTenant($tenant);
         return $next($request);
